@@ -1,0 +1,86 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components"; // Pastikan Anda memiliki astro-icon terpasang
+
+const services = [
+  {
+    title: "Yasin Hardcover Premium",
+    desc: "Buku Yasin dengan jilid board tebal, finishing laminasi, dan desain eksklusif yang tahan bertahun-tahun.",
+    icon: "lucide:book-open",
+  },
+  {
+    title: "Eksklusif Velvet",
+    desc: "Sentuhan mewah kain bludru dengan teknik embos emas (foil) yang memberikan kesan sakral dan elegan.",
+    icon: "lucide:gem",
+  },
+  {
+    title: "Paket Souvenir Tahlilan",
+    desc: "Solusi paket lengkap Yasin dengan tasbih, sajadah, atau kotak box cantik untuk tamu undangan.",
+    icon: "lucide:gift",
+  },
+  {
+    title: "Layout Desain Custom",
+    desc: "Kami susun tata letak foto, doa, dan kata mutiara secara personal sesuai keinginan keluarga.",
+    icon: "lucide:palette",
+  },
+  {
+    title: "Cetak Cepat (Express)",
+    desc: "Layanan pengerjaan prioritas untuk kebutuhan acara mendesak tanpa mengurangi detail kualitas.",
+    icon: "lucide:clock",
+  },
+  {
+    title: "Konsultasi Gratis",
+    desc: "Tim kami siap membantu memilihkan bahan dan desain yang paling tepat dengan anggaran Anda.",
+    icon: "lucide:message-circle",
+  },
+];
+---
+
+<BaseLayout title="Layanan ABA Print - Solusi Cetak Yasin Terbaik">
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm"
+          >Layanan Kami</span
+        >
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 mb-6">
+          Pilihan Produk & Jasa Cetak
+        </h1>
+        <p class="text-xl text-gray-600">
+          Kami menawarkan berbagai opsi cetak buku Yasin yang dapat disesuaikan
+          dengan kebutuhan ibadah Anda.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          services.map((service) => (
+            <div class="group p-8 bg-gray-50 rounded-3xl border border-transparent hover:border-indigo-100 hover:bg-white hover:shadow-2xl transition-all duration-300">
+              <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 group-hover:scale-110 transition-transform">
+                <Icon name={service.icon} class="w-7 h-7" />
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{service.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-indigo-900 text-white text-center">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">
+        Siap Memulai Pemesanan?
+      </h2>
+      <a
+        href="https://wa.me/6289519865963"
+        class="px-10 py-4 bg-green-500 hover:bg-green-600 rounded-full font-bold text-lg transition shadow-lg"
+      >
+        Konsultasi via WhatsApp
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -37,13 +37,13 @@ const metadata = {
     actions={[
       {
         text: "Hubungi WhatsApp",
-        href: "https://wa.me/628xxxxxxxxxx", // Silakan ganti dengan nomor WhatsApp Anda nanti
+        href: siteConfig.socialLinks.whatsapp, // Otomatis terhubung ke data asli di site.ts Anda
         variant: "primary",
         icon: "lucide:message-circle",
       },
       {
         text: "Daftar Harga & Model",
-        href: "/daftar-harga",
+        href: "/harga", // Diselaraskan dengan konfigurasi rute menu navigasi /harga Anda
         variant: "secondary",
         icon: "lucide:book-open",
         ariaLabel: "Lihat koleksi produk buku yasin",
@@ -176,7 +176,6 @@ const metadata = {
               <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-xs transition-all hover:shadow-md">
                 <div class="flex flex-1 flex-col p-6">
                   <div class="flex-1">
-                    {/* Mengubah warna teks tanggal menjadi abu-abu tua */}
                     <p class="text-xs font-medium text-gray-600 dark:text-neutral-400">
                       {new Date(post.data.pubDate).toLocaleDateString("id-ID", {
                         day: "numeric",
@@ -185,7 +184,6 @@ const metadata = {
                       })}
                     </p>
                     <a href={`/blog/${post.id}`} class="mt-2 block">
-                      {/* Mengubah warna hover judul menjadi abu-abu tua */}
                       <h3 class="text-xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-neutral-300 transition-colors line-clamp-2">
                         {post.data.title}
                       </h3>
@@ -195,7 +193,6 @@ const metadata = {
                     </a>
                   </div>
                   <div class="mt-6 flex items-center">
-                    {/* Mengubah warna link "Baca Selengkapnya" menjadi abu-abu tua */}
                     <a
                       href={`/blog/${post.id}`}
                       class="text-sm font-semibold text-gray-700 dark:text-neutral-300 hover:underline inline-flex items-center gap-1"

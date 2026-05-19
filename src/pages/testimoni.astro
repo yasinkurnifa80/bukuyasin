@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getImage } from "astro:assets";
+import Content2 from "@/components/widgets/Content2.astro";
+import Values from "@/components/widgets/Values.astro";
+
+// Gunakan gambar yang relevan dengan kepuasan pelanggan/hasil cetak
+import testimoniImage from "@/assets/images/hasil-cetak-yasin.webp";
+
+const metadata = {
+  title: "Testimoni Pelanggan — Kepercayaan Anda adalah Amanah bagi ABA Print",
+  description:
+    "Simak apa kata mereka yang telah mempercayakan cetak buku Yasin kepada ABA Print. Kualitas premium dan pelayanan amanah untuk Anda.",
+};
+
+const testimonials = [
+  {
+    title: "Hasil Sangat Rapi & Cepat",
+    description:
+      "Alhamdulillah, buku Yasin untuk 40 harian almarhumah ibu sudah sampai tepat waktu. Kualitas cetakannya tajam sekali, jilidnya kuat. Terima kasih ABA Print atas layanannya.",
+  },
+  {
+    title: "Sangat Membantu Desain",
+    description:
+      "Awalnya bingung buat layout foto dan doa sisipan, tapi dibantu sama tim desainer ABA Print sampai hasilnya pas. Sangat sabar dan komunikatif.",
+  },
+  {
+    title: "Harga Sesuai Kualitas",
+    description:
+      "Puas banget, pesan 100 pcs untuk tahlilan keluarga besar. Kertasnya tebal dan finishingnya eksklusif. Tamu yang datang banyak yang memuji buku Yasinnya.",
+  },
+  {
+    title: "Pelayanan Sangat Amanah",
+    description:
+      "Luar biasa, dari diskusi di WhatsApp sampai pengiriman sangat dimudahkan. Tidak ada biaya aneh-aneh dan hasilnya benar-benar sesuai contoh.",
+  },
+  {
+    title: "Detail Sangat Terjaga",
+    description:
+      "Detail huruf arabnya jelas, tidak blur. Sangat enak dibaca jamaah. Ini cetakan buku Yasin terbaik yang pernah saya pesan selama ini.",
+  },
+  {
+    title: "Sangat Direkomendasikan",
+    description:
+      "Kalau cari tempat cetak Yasin yang nggak pakai lama dan kualitasnya premium, langsung ke ABA Print saja. Sangat rekomended!",
+  },
+];
+
+const optimizedImage = await getImage({
+  src: testimoniImage,
+  format: "webp",
+});
+---
+
+<BaseLayout {metadata}>
+  <link slot="head" rel="preload" href={optimizedImage.src} as="image" />
+
+  {/* Bagian Narasi Utama (Cerita di balik kepercayaan pelanggan) */}
+  <Content2
+    title="Kepercayaan Anda adalah Amanah Terbesar Kami"
+    description={[
+      "Ribuan keluarga telah mempercayakan momen mengenang orang terkasih kepada ABA Print. Kami merasa terhormat bisa menjadi bagian dari proses penyiapan buku Yasin yang layak dan penuh doa.",
+      "Setiap ulasan dan testimoni di bawah ini bukan sekadar kata-kata, melainkan cerminan dari dedikasi kami dalam menjaga standar kualitas dan ketepatan waktu untuk setiap pesanan yang masuk.",
+    ]}
+    tagline="Testimoni"
+    image={testimoniImage}
+    imageAlt="Hasil cetak buku Yasin premium ABA Print"
+    actions={[
+      {
+        text: "Pesan via WhatsApp",
+        href: "https://wa.me/6289519865963",
+        variant: "primary",
+        icon: "lucide:message-circle",
+      },
+      {
+        text: "Lihat Katalog Produk",
+        href: "/services",
+        variant: "secondary",
+        icon: "lucide:book-open",
+      },
+    ]}
+  />
+
+  {/* Bagian Testimoni Pelanggan */}
+  <Values
+    items={testimonials}
+    columns={2}
+    tagline="Kata Mereka"
+    title="Apa Kata Pelanggan Tentang ABA Print?"
+    subtitle="Kami bangga bisa memberikan dedikasi terbaik bagi setiap keluarga yang mempercayakan kebutuhan buku Yasin kepada kami."
+  />
+</BaseLayout>

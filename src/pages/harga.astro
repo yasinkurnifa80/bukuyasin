@@ -1,0 +1,106 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const metadata = {
+  title: "Daftar Paket Harga Cetak Yasin — ABA Print",
+  description:
+    "Pilihan paket cetak buku Yasin mulai dari 18 Ribu hingga 42 Ribu dengan kualitas premium.",
+};
+
+// Data paket harga sesuai permintaan Anda
+const pricingPlans = [
+  {
+    title: "Paket Hemat",
+    price: "Rp 18.000",
+    features: ["Kertas HVS", "Softcover", "Gratis Desain", "Proses Cepat"],
+  },
+  {
+    title: "Paket Standar",
+    price: "Rp 22.000",
+    features: [
+      "Kertas Art Paper",
+      "Softcover",
+      "Foto Almarhum",
+      "Finishing Rapi",
+    ],
+  },
+  {
+    title: "Paket Populer",
+    price: "Rp 28.000",
+    features: [
+      "Hardcover Kokoh",
+      "Laminasi Doff",
+      "Pita Pembatas",
+      "Foto & Data Keluarga",
+    ],
+    isPopular: true,
+  },
+  {
+    title: "Paket Eksklusif",
+    price: "Rp 33.000",
+    features: [
+      "Hardcover Linen",
+      "Emboss Emas",
+      "Kertas Premium",
+      "Box Eksklusif",
+    ],
+  },
+  {
+    title: "Paket Luxury",
+    price: "Rp 42.000",
+    features: [
+      "Cover Bludru",
+      "Gold Foil Timbul",
+      "Kertas Spesial",
+      "Pita Premium",
+    ],
+  },
+];
+---
+
+<BaseLayout {metadata}>
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
+        Daftar Paket Harga
+      </h1>
+      <p class="text-lg text-gray-600 mb-12">
+        Pilih paket yang sesuai dengan kebutuhan kenangan terbaik Anda.
+      </p>
+
+      {/* Grid yang lebih fleksibel untuk 5 item */}
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {
+          pricingPlans.map((plan) => (
+            <div
+              class={`p-6 rounded-2xl border ${plan.isPopular ? "border-indigo-600 shadow-2xl scale-105 bg-white" : "border-gray-200 bg-white"}`}
+            >
+              {plan.isPopular && (
+                <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase mb-2 block">
+                  Paling Diminati
+                </span>
+              )}
+              <h2 class="text-lg font-bold text-gray-800">{plan.title}</h2>
+              <p class="text-2xl font-extrabold my-4 text-indigo-700">
+                {plan.price}
+              </p>
+              <ul class="text-left space-y-2 mb-6">
+                {plan.features.map((feature) => (
+                  <li class="flex items-center text-xs text-gray-600">
+                    <span class="mr-2 text-indigo-500">✓</span> {feature}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://wa.me/6289519865963"
+                class="block w-full py-2 text-center bg-indigo-600 text-white rounded-lg font-bold text-sm hover:bg-indigo-700 transition"
+              >
+                Pilih Paket
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

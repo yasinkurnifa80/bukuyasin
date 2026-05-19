@@ -1,0 +1,109 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets"; // 1. Import Image komponen
+
+// 2. Import gambar Anda
+import aboutImage from "@/assets/images/laman-lain.webp";
+
+const metadata = {
+  title: "Cara Pemesanan Buku Yasin — Mudah, Aman, & Cepat",
+  description: "Ikuti langkah mudah memesan buku Yasin premium di ABA Print.",
+};
+
+const steps = [
+  {
+    step: "01",
+    title: "Konsultasi & Pemilihan Paket",
+    desc: "Hubungi kami via WhatsApp untuk konsultasi jenis buku dan desain.",
+    icon: "lucide:message-circle",
+  },
+  {
+    step: "02",
+    title: "Pengiriman Data & Foto",
+    desc: "Kirimkan data almarhum dan foto kualitas tinggi.",
+    icon: "lucide:file-text",
+  },
+  {
+    step: "03",
+    title: "Proses Desain & Preview",
+    desc: "Tim kami menyusun layout dan mengirimkan preview digital.",
+    icon: "lucide:palette",
+  },
+  {
+    step: "04",
+    title: "Produksi & Finishing",
+    desc: "Setelah ACC, buku masuk ke tahap cetak dan finishing.",
+    icon: "lucide:printer",
+  },
+  {
+    step: "05",
+    title: "Pengiriman Amanah",
+    desc: "Buku dikemas aman dan dikirim ke alamat Anda.",
+    icon: "lucide:truck",
+  },
+];
+---
+
+<BaseLayout {metadata}>
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      {/* Header dengan Gambar Artistik */}
+      <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <span
+            class="text-emerald-600 font-bold tracking-widest uppercase text-sm"
+            >Proses Pemesanan</span
+          >
+          <h1
+            class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 mb-6"
+          >
+            Mudah, Cepat, & Terpercaya
+          </h1>
+          <p class="text-xl text-gray-600">
+            Kami membuat proses penyiapan buku Yasin menjadi sangat sederhana
+            sehingga Anda bisa fokus pada acara khidmat keluarga.
+          </p>
+        </div>
+        <div class="lg:w-1/2">
+          <Image
+            src={aboutImage}
+            alt="Proses pembuatan buku Yasin di ABA Print"
+            class="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Timeline Grid */}
+      <div class="grid gap-12 max-w-4xl mx-auto">
+        {
+          steps.map((item) => (
+            <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+              <div class="flex-shrink-0 w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">
+                {item.step}
+              </div>
+              <div class="flex-grow pt-2">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-lg">{item.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* CTA Section */}
+      <div class="mt-20 text-center">
+        <a
+          href="https://wa.me/6289519865963"
+          class="inline-flex items-center gap-3 px-10 py-5 bg-emerald-700 text-white rounded-full font-bold text-lg hover:bg-emerald-800 transition-all shadow-xl"
+        >
+          {/* Ikon diperbaiki agar tidak error */}
+          <Icon name="lucide:message-circle" class="w-6 h-6" />
+          Mulai Konsultasi Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

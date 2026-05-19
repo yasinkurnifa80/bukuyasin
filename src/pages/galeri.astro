@@ -1,0 +1,68 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Galeri Hasil Cetak — ABA Print Makassar",
+  description:
+    "Lihat koleksi hasil cetak buku Yasin premium kami. Kehalusan cetakan dan kerapian jilid adalah standar kami.",
+};
+
+// Data galeri: Ganti dengan array gambar asli Anda nantinya
+const galleryItems = [
+  { title: "Yasin Hardcover Gold Foil", image: aboutImage },
+  { title: "Detail Kertas Premium", image: aboutImage },
+  { title: "Souvenir Tahlilan", image: aboutImage },
+  { title: "Layout Eksklusif", image: aboutImage },
+  { title: "Finishing Jilid Rapi", image: aboutImage },
+  { title: "Opsi Hardcover Velvet", image: aboutImage },
+];
+---
+
+<BaseLayout {metadata}>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
+          Galeri Hasil Cetak
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Bukti nyata dari dedikasi kami. Setiap buku Yasin yang kami produksi
+          diproses dengan ketelitian tinggi demi hasil yang memuaskan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          galleryItems.map((item) => (
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
+              <img
+                src={item.image.src}
+                alt={item.title}
+                class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
+                <p class="text-white font-semibold text-lg px-4 text-center">
+                  {item.title}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Bawah sebagai Penutup */}
+  <section class="py-12 bg-gray-50 text-center">
+    <h2 class="text-2xl font-bold mb-6">
+      Ingin Hasil yang Sama untuk Acara Anda?
+    </h2>
+    <a
+      href="https://wa.me/6289519865963"
+      class="inline-block px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
+    >
+      Konsultasi via WhatsApp
+    </a>
+  </section>
+</BaseLayout>
