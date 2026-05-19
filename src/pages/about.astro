@@ -3,44 +3,46 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getImage } from "astro:assets";
 import Content2 from "@/components/widgets/Content2.astro";
 import Values from "@/components/widgets/Values.astro";
-import aboutImage from "@/assets/images/about-office.webp";
+
+// Tetap menggunakan gambar yang sudah pasti ada di proyek Anda agar tidak error saat di-build
+import aboutImage from "@/assets/images/tentang-kami.webp";
 
 const metadata = {
-  title: "About us",
+  title: "Tentang Kami — Spesialis Cetak Buku Yasin Premium ABA Print",
   description:
-    "Learn more about our vision, values, and the team behind Astro Starter Pro.",
+    "Kenali ABA Print lebih dekat. Kami adalah layanan percetakan spesialis buku yasin dan tahlil yang mengutamakan kualitas tak tertandingi dan ketepatan waktu.",
 };
 
 const values = [
   {
-    title: "Innovation",
+    title: "Hasil Cetak Tajam & Rapi",
     description:
-      "Curabitur dignissim, felis non sollicitudin molestie, urna mauris pellentesque velit, ut eleifend.",
+      "Setiap huruf Arab dan terjemahan dicetak menggunakan mesin modern berkualitas tinggi, memastikan tulisan sangat jelas dan nyaman dibaca oleh jamaah.",
   },
   {
-    title: "Commitment",
+    title: "Jaminan Tepat Waktu",
     description:
-      "Aenean condimentum finibus mauris, a fermentum justo pan eget. Sed ultricies, neque quis.",
+      "Kami memahami pentingnya tanggal acara tahlilan (40 hari, 100 hari, atau 1000 hari). Kami berkomitmen menyelesaikan pesanan sesuai jadwal yang disepakati.",
   },
   {
-    title: "Quality",
+    title: "Bahan Baku Pilihan",
     description:
-      "Donec sed orci tincidunt, aliquam nisl a, condimentum nunc. Nulla varius ex nec ante feugiat.",
+      "Mulai dari kertas isi (HVS/Art Paper) hingga variasi board hardcover, semua dipilih dari material premium terbaik agar buku kokoh dan tahan bertahun-tahun.",
   },
   {
-    title: "Transparency",
+    title: "Gratis Desain Sisipan",
     description:
-      "Phasellus tristique, elit dapibus cursus facilisis, lorem augue fringilla nunc, vitae fermentum.",
+      "Tim desainer kami siap membantu menyusun tata letak foto almarhum, data keluarga, dan doa tambahan secara gratis sampai Anda menyatakan setuju (ACC).",
   },
   {
-    title: "Teamwork",
+    title: "Proses Transparan",
     description:
-      "In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et.",
+      "Tidak ada biaya tersembunyi. Semua spesifikasi bahan, jumlah halaman, dan total biaya diinfokan dengan jelas di awal sebelum naik cetak.",
   },
   {
-    title: "Excellence",
+    title: "Melayani dengan Empati",
     description:
-      "Fusce at massa nec sapien auctor gravida in in tellus. Vivamus a tristique metus, et molestie.",
+      "Kami memperlakukan setiap pesanan buku yasin dengan rasa hormat yang tinggi, demi membantu Anda memberikan dedikasi terbaik bagi almarhum/almarhumah.",
   },
 ];
 
@@ -52,35 +54,39 @@ const optimizedImage = await getImage({
 
 <BaseLayout {metadata}>
   <link slot="head" rel="preload" href={optimizedImage.src} as="image" />
+
+  {/* Bagian Narasi Utama (Copywriting Cerita & Komitmen Toko) */}
   <Content2
-    title="Our Vision"
+    title="Dedikasi Terbaik untuk Mengenang Keluarga Tercinta"
     description={[
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ABA Print lahir dari sebuah komitmen sederhana: membantu setiap keluarga muslim menghadirkan cinderamata ibadah yang paling layak, rapi, dan mulia saat mengenang wafatnya anggota keluarga tercinta.",
+      "Kami memahami bahwa Buku Yasin dan Tahlil yang Anda bagikan bukan sekadar lembaran kertas, melainkan wujud penghormatan, kenangan, serta wasilah doa yang akan terus dibaca oleh kerabat dan jamaah. Oleh karena itu, kami tidak pernah bermain-main dengan kualitas cetakan, kerapian jilid, maupun ketepatan waktu pengerjaan.",
     ]}
-    tagline="About"
+    tagline="Tentang Kami"
     image={aboutImage}
-    imageAlt="Modern web development office"
+    imageAlt="Spesialis Cetak Buku Yasin Premium - ABA Print"
     actions={[
       {
-        text: "Contact Us",
-        href: "/contact",
+        text: "Tanya Lewat WhatsApp",
+        href: "https://wa.me/6289519865963",
         variant: "primary",
-        icon: "lucide:mail",
+        icon: "lucide:message-circle",
       },
       {
-        text: "View Details",
-        href: "#",
+        text: "Lihat Pilihan Model",
+        href: "/services",
         variant: "secondary",
         icon: "lucide:arrow-right",
       },
     ]}
   />
+
+  {/* Bagian Keunggulan / Nilai Jual yang Membuat Pelanggan Yakin */}
   <Values
     items={values}
     columns={3}
-    tagline="Our Values"
-    title="What Defines Us"
-    subtitle="Principles that guide our daily work"
+    tagline="Keunggulan Kami"
+    title="Mengapa Mempercayakan Cetak Yasin di ABA Print?"
+    subtitle="6 Alasan utama mengapa ribuan pelanggan mempercayakan pembuatan buku yasin mengenang almarhum/almarhumah kepada kami."
   />
 </BaseLayout>
