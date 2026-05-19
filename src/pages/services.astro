@@ -3,126 +3,166 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ServiceList from "@/components/widgets/ServiceList.astro";
 import Content from "@/components/widgets/Content.astro";
 import Content2 from "@/components/widgets/Content2.astro";
-import webDevImg from "@/assets/images/services/web-dev.webp";
-import seoImg from "@/assets/images/services/seo.webp";
-import consultingImg from "@/assets/images/services/consulting.webp";
+
+// Menggunakan aset gambar yang sudah ada di proyek Anda
+import webDevImg from "@/assets/images/dev_balanced.png";
+import seoImg from "@/assets/images/open-source.png";
 
 const services = [
   {
-    title: "Web Development",
-    description: "Static and dynamic sites built for the modern era.",
-    icon: "lucide:globe",
+    title: "Buku Yasin Softcover",
+    description:
+      "Pilihan ekonomis dan praktis dengan jilid staples atau lem panas. Desain cover bisa custom penuh menggunakan kertas tebal (Art Carton).",
+    icon: "lucide:book",
   },
   {
-    title: "SEO Optimization",
-    description: "We ensure your content is found by those looking for it.",
-    icon: "lucide:search",
+    title: "Buku Yasin Hardcover",
+    description:
+      "Tampilan sangat kokoh, mewah, dan awet. Menggunakan papan tebal berlapis kertas premium dengan pilihan poly emas atau perak.",
+    icon: "lucide:book-lock",
   },
   {
-    title: "IT Consulting",
-    description: "Technical advice to scale your projects to the next level.",
-    icon: "lucide:rocket",
+    title: "Premium Beludru & Majmu Syarif",
+    description:
+      "Model eksklusif berlapis kain beludru lembut atau kitab Majmu Syarif lengkap untuk kenangan terbaik bagi keluarga tercinta.",
+    icon: "lucide:award",
   },
 ];
+
 const metadata = {
-  title: "Services",
+  title: "Daftar Harga & Model Cetak Buku Yasin — ABA Print",
   description:
-    "Discover our web development, SEO optimization, and technology consulting services.",
+    "Lihat berbagai pilihan model buku yasin dan tahlil terlengkap di ABA Print. Tersedia model Softcover, Hardcover, hingga kain beludru dengan harga terjangkau.",
 };
 ---
 
 <BaseLayout {metadata}>
+  {/* Bagian Header Utama Halaman */}
   <Content
-    tagline="Services"
-    title="Our Services"
+    tagline="Daftar Produk"
+    title="Pilihan Model Buku Yasin & Tahlil"
     description={[
-      "Comprehensive solutions designed to maximize the potential of your digital presence.",
+      "Kami menyediakan berbagai macam variasi model cover dan ketebalan halaman buku yasin yang bisa disesuaikan sepenuhnya dengan anggaran dan kebutuhan acara mengenang wafatnya keluarga tercinta.",
     ]}
   />
+
+  {/* Daftar Tiga Kategori Utama */}
   <ServiceList services={services} classes={{ container: "pt-0 md:pt-0" }} />
+
+  {/* Detail Spesifikasi 1: Model Softcover */}
   <Content
-    tagline="Web Development"
-    title="Modern Web Development"
+    tagline="Model Ekonomis"
+    title="Buku Yasin & Tahlil Softcover"
     description={[
-      "We specialize in building fast, secure, and scalable websites using the latest technologies. We transform your vision into an impactful digital experience.",
+      "Sangat cocok untuk pemesanan dalam jumlah besar dengan anggaran yang terbatas tanpa mengurangi kekhidmatan isi buku.",
     ]}
     classes={{ container: "pb-0 md:pb-0" }}
   />
   <Content2
     items={[
       {
-        title: "Responsive Design",
+        title: "Bahan Cover Tebal & Glossy",
         description:
-          "Your site will look perfect on any device, from mobiles to desktop screens.",
+          "Menggunakan kertas Art Carton 260gr yang tebal, dicetak full color, dan dilapisi laminating glossy/doff agar tahan air.",
       },
       {
-        title: "Optimized Performance",
+        title: "Pilihan Isi Halaman Lengkap",
         description:
-          "Fast loading to improve user experience and SEO positioning.",
+          "Tersedia pilihan isi mulai dari 128, 144, hingga 160 halaman dengan kertas HVS berkualitas tinggi.",
       },
     ]}
     image={webDevImg}
-    imageAlt="Modern Web Development"
+    imageAlt="Contoh Cetak Buku Yasin Softcover"
     classes={{ container: "pt-0 md:pt-0" }}
   >
     <Fragment>
       <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Modern Web Development
+        Spesifikasi Model Softcover
       </h3>
-      We specialize in building fast, secure, and scalable websites using the latest
-      technologies. We transform your vision into an impactful digital experience.
+      Walaupun harganya sangat bersahabat, kami tetap memastikan hasil potongan rapi,
+      jilid kuat, serta kualitas cetakan tulisan Arab yang tajam dan nyaman dibaca
+      oleh jamaah.
     </Fragment>
   </Content2>
 
+  {/* Detail Spesifikasi 2: Model Hardcover Premium */}
   <Content2
     isReversed={true}
     items={[
       {
-        title: "SEO Audit",
+        title: "Cover Board Tebal & Poly Emas",
         description:
-          "We deeply analyze your website to identify technical and content improvement opportunities.",
+          "Lapisan cover menggunakan board tebal yang tidak mudah melengkung, ditambah finishing hot print emas/perak pada nama almarhum.",
       },
       {
-        title: "Content Strategy",
+        title: "Sudut Siku Logam (Variasi)",
         description:
-          "We create relevant content plans that attract and retain your target audience.",
+          "Bisa ditambahkan siku pembatas logam di setiap sudut buku untuk memberikan kesan yang jauh lebih mewah dan aman dari benturan.",
       },
     ]}
     image={seoImg}
-    imageAlt="SEO Strategies"
+    imageAlt="Contoh Cetak Buku Yasin Hardcover"
   >
     <Fragment>
       <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        SEO Optimization
+        Spesifikasi Model Hardcover Premium
       </h3>
-      We help your business get found by the right people. Our organic positioning
-      strategies are designed to improve your organic visibility.
+      Pilihan terbaik untuk memberikan cinderamata mengenang 40 hari atau 100 hari
+      wafatnya keluarga dengan tampilan yang elegan, kokoh, dan tahan disimpan hingga
+      bertahun-tahun.
     </Fragment>
   </Content2>
 
+  {/* Bagian Fitur Tambahan: Redaksi Lembar Sisipan */}
   <Content2
     items={[
       {
-        title: "Digital Transformation",
+        title: "Halaman Foto Almarhum Full Color",
         description:
-          "We guide you in adopting new technologies to optimize your business processes.",
+          "Dicetak menggunakan kertas foto semi-glos (Art Paper) sehingga wajah almarhum/almarhumah terlihat jelas dan bersih.",
       },
       {
-        title: "Software Architecture",
+        title: "Susunan Nama Keluarga Tercinta",
         description:
-          "We design robust and scalable systems prepared for future growth.",
+          "Memuat daftar lengkap nama keluarga yang ditinggalkan, mulai dari pasangan, anak, menantu, hingga cucu.",
       },
     ]}
-    image={consultingImg}
-    imageAlt="Technology Consulting"
+    image={webDevImg}
+    imageAlt="Fitur Bonus dan Lembar Sisipan Redaksi"
   >
     <Fragment>
       <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">
-        Technology Consulting
+        Gratis Desain Lembar Sisipan Redaksi
       </h3>
-      We accompany you in critical decision-making. We evaluate your current infrastructure
-      and design personalized roadmaps to take your company to the next technological
-      level.
+      Setiap paket pemesanan di ABA Print sudah termasuk gratis pemasangan lembar
+      sisipan redaksi di bagian depan buku. Tim desainer kami akan membantu menyusun
+      tata letaknya sampai Anda setuju (ACC) sebelum naik cetak.
     </Fragment>
   </Content2>
+
+  {/* CTA Section Kecil di Bawah */}
+  <section
+    class="py-12 bg-gray-50 dark:bg-neutral-900 border-t border-gray-100 dark:border-neutral-800 text-center"
+  >
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
+        Ingin Tanya Model Lain atau Nego Harga?
+      </h2>
+      <p
+        class="text-base text-gray-600 dark:text-neutral-400 mt-2 max-w-2xl mx-auto"
+      >
+        Hubungi tim customer service kami untuk mendapatkan penawaran harga
+        terbaik khusus pemesanan dalam jumlah banyak beserta bonus
+        tasbih/sajadah.
+      </p>
+      <div class="mt-6">
+        <a
+          href="https://wa.me/628xxxxxxxxxx"
+          class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors shadow-xs"
+        >
+          Konsultasi via WhatsApp Gratis
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
