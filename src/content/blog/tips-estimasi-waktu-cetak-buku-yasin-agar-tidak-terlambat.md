@@ -1,9 +1,9 @@
 ---
-title: "Aenean Commodo Ligula Eget Dolor"
+title: "Tips Estimasi Waktu Cetak Buku Yasin Agar Tidak Terlambat"
 pubDate: "2026-01-18"
-description: "Exploring the depths of layout variations with standard dummy text."
-author: "Lorem"
-category: "Tech"
+description: "Tips Estimasi Waktu Cetak Buku Yasin Agar Tidak Terlambat"
+author: "Ahmad Rezky"
+category: "Artikel"
 tags: ["testing", "coding"]
 image: "/blog/blog_post_1_1768848683359.webp"
 ---

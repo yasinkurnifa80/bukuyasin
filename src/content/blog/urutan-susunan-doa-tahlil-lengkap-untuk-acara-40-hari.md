@@ -1,9 +1,9 @@
 ---
-title: "Welcome to the New Blog"
+title: "Urutan Susunan Doa Tahlil Lengkap untuk Acara 40 Hari"
 pubDate: "2026-01-19"
-description: "This is the first post on our new Astro-powered blog."
-author: "Angelo Pescetto"
-category: "General"
+description: "Urutan Susunan Doa Tahlil Lengkap untuk Acara 40 Hari."
+author: "Ahmad Rezky"
+category: "Artikel"
 tags: ["welcome", "community", "astro"]
 image: "/blog/welcome.webp"
 ---

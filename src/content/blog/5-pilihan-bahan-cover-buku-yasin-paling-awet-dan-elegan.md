@@ -1,9 +1,9 @@
 ---
-title: "Markdown Features"
+title: "5 Pilihan Bahan Cover Buku Yasin yang Paling Awet dan Elegan"
 pubDate: "2026-01-19"
-description: "Exploring the capabilities of Markdown in our blog."
-author: "Angelo Pescetto"
-category: "Tech"
+description: "5 Pilihan Bahan Cover Buku Yasin yang Paling Awet dan Elegan."
+author: "Ahmad Rezky"
+category: "Artikel"
 tags: ["markdown", "features", "astro"]
 image: "/blog/markdown.webp"
 ---
