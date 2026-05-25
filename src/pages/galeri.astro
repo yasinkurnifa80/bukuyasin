@@ -1,0 +1,74 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets"; // Menggunakan komponen Image Astro
+import { Icon } from "astro-icon/components";
+
+import aboutImage from "@/assets/images/about-office.webp";
+
+const metadata = {
+  title: "Galeri Hasil Cetak — ABA Print Makassar",
+  description:
+    "Lihat koleksi hasil cetak buku Yasin premium kami. Kehalusan cetakan dan kerapian jilid adalah standar kami.",
+};
+
+const galleryItems = [
+  { title: "Yasin Hardcover Gold Foil", image: aboutImage },
+  { title: "Detail Kertas Premium", image: aboutImage },
+  { title: "Souvenir Tahlilan", image: aboutImage },
+  { title: "Layout Eksklusif", image: aboutImage },
+  { title: "Finishing Jilid Rapi", image: aboutImage },
+  { title: "Opsi Hardcover Velvet", image: aboutImage },
+];
+---
+
+<BaseLayout {metadata}>
+  <section class="section-blue py-16 dark:bg-slate-950">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+          Galeri Hasil Cetak
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Bukti nyata dari dedikasi kami. Setiap buku Yasin yang kami produksi
+          diproses dengan ketelitian tinggi demi hasil yang memuaskan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          galleryItems.map((item) => (
+            <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={500}
+                height={320}
+                format="webp"
+                class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
+                <p class="text-white font-semibold text-lg px-4 text-center">
+                  {item.title}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Bawah sebagai Penutup */}
+  <section class="section-yellow py-12 text-center dark:bg-slate-900">
+    <h2 class="text-2xl font-bold mb-6 text-gray-950 dark:text-white">
+      Ingin Hasil yang Sama untuk Acara Anda?
+    </h2>
+    <a
+      href="https://wa.me/62895401308267"
+      class="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-500/20 hover:scale-105 transform transition duration-300 shadow-md shadow-green-500/10"
+    >
+      <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+      Konsultasi via WhatsApp
+    </a>
+  </section>
+</BaseLayout>

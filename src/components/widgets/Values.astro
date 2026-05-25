@@ -25,6 +25,8 @@ const gridCols = {
   3: "grid-cols-1 md:grid-cols-3",
   4: "grid-cols-1 md:grid-cols-4",
 };
+
+const cardVariants = ["sage", "blue", "amber", "clay"] as const;
 ---
 
 <WidgetWrapper
@@ -44,8 +46,8 @@ const gridCols = {
   />
   <div class={`grid ${gridCols[columns]} gap-8 text-left`}>
     {
-      items.map((item) => (
-        <Card>
+      items.map((item, index) => (
+        <Card variant={cardVariants[index % cardVariants.length]}>
           {item.icon && (
             <div class="mb-4 text-primary text-4xl">
               <Icon name={item.icon} class="w-12 h-12" />

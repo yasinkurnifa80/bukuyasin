@@ -1,10 +1,11 @@
 ---
 import { siteConfig } from "@/config/site";
 import ThemeToggle from "@/components/ui/ThemeToggle.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <nav
-  class="fixed top-0 z-50 w-full border-b border-border bg-background md:bg-background/50 md:backdrop-blur"
+  class="site-navbar fixed top-0 z-50 w-full border-b"
 >
   <div
     class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
@@ -12,41 +13,77 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
     <div class="flex items-center gap-2">
       <a
         href="/"
-        class="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-primary"
+        class="site-navbar-link text-xl font-bold tracking-tight transition-colors"
       >
         {siteConfig.name}
       </a>
     </div>
 
-    <!-- Desktop Menu -->
     <div class="hidden md:block">
-      <div class="ml-10 flex items-baseline space-x-8">
+      <div class="ml-10 flex items-center space-x-8">
         {
-          siteConfig.navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="text-sm font-medium text-foreground transition-colors hover:text-primary"
-            >
-              {link.text}
-            </a>
-          ))
+          siteConfig.navLinks.map((link) => {
+            const hasSubLinks = link.subLinks && link.subLinks.length > 0;
+
+            return hasSubLinks ? (
+              // Dropdown Wrapper menggunakan fitur 'group' Tailwind
+              <div class="relative group">
+                <button class="site-navbar-link inline-flex items-center gap-1 text-sm font-medium transition-colors focus:outline-none py-2">
+                  {link.text}
+                  <svg
+                    class="h-4 w-4 transition-transform group-hover:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Kotak Dropdown Item */}
+                <div class="site-dropdown absolute left-0 top-full z-50 mt-0 hidden min-w-[180px] rounded-md border p-1 shadow-lg group-hover:block">
+                  {link.subLinks.map((subLink) => (
+                    <a
+                      href={subLink.href}
+                      class="block rounded px-4 py-2 text-sm text-foreground transition-colors hover:bg-foreground/10 hover:text-primary"
+                    >
+                      {subLink.text}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class="site-navbar-link text-sm font-medium transition-colors py-2"
+              >
+                {link.text}
+              </a>
+            );
+          })
         }
       </div>
     </div>
 
     <div class="hidden md:flex items-center gap-4">
       <a
-        href={siteConfig.socialLinks.github}
+        href={siteConfig.socialLinks.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        class="rounded-full bg-foreground/10 px-4 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground/20"
+        class="whatsapp-nav-button"
+        aria-label="Hubungi ABA Print melalui WhatsApp"
       >
-        GitHub
+        <Icon name="tabler:brand-whatsapp" class="whatsapp-nav-icon" />
+        <span>WhatsApp</span>
       </a>
       <ThemeToggle />
     </div>
 
-    <!-- Mobile Menu Button -->
     <div class="md:hidden flex items-center">
       <button
         id="mobile-menu-button"
@@ -56,7 +93,6 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
         aria-expanded="false"
       >
         <span class="sr-only">Open main menu</span>
-        <!-- Icon when menu is closed -->
         <svg
           id="menu-icon-closed"
           class="block h-6 w-6"
@@ -71,7 +107,6 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
             stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-        <!-- Icon when menu is open -->
         <svg
           id="menu-icon-open"
           class="hidden h-6 w-6"
@@ -95,24 +130,47 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 
   <div class="hidden md:hidden" id="mobile-menu">
     <div
-      class="space-y-1 border-b border-border bg-background/90 px-2 pb-3 pt-2 sm:px-3"
+      class="site-navbar-menu space-y-1 border-b px-2 pb-3 pt-2 sm:px-3"
     >
       {
-        siteConfig.navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-white/10 hover:text-primary"
-          >
-            {link.text}
-          </a>
-        ))
+        siteConfig.navLinks.map((link) => {
+          const hasSubLinks = link.subLinks && link.subLinks.length > 0;
+
+          return hasSubLinks ? (
+            <div class="space-y-1 py-1">
+                <div class="site-navbar-link px-3 py-1 text-sm font-semibold uppercase tracking-wider opacity-75">
+                {link.text}
+              </div>
+              <div class="pl-4 border-l border-border ml-3 space-y-1">
+                {link.subLinks.map((subLink) => (
+                  <a
+                    href={subLink.href}
+                    class="site-navbar-link block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-white/10"
+                  >
+                    {subLink.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class="site-navbar-link block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-white/10"
+            >
+              {link.text}
+            </a>
+          );
+        })
       }
       <a
-        href={siteConfig.socialLinks.github}
+        href={siteConfig.socialLinks.whatsapp}
         target="_blank"
-        class="block rounded-md px-3 py-2 text-base font-medium text-blue-400 transition-colors hover:cursor-pointer hover:bg-blue-500/10 hover:text-blue-300"
-        >GitHub</a
+        class="whatsapp-nav-button whatsapp-nav-button-mobile"
+        aria-label="Hubungi ABA Print melalui WhatsApp"
       >
+        <Icon name="tabler:brand-whatsapp" class="whatsapp-nav-icon" />
+        <span>WhatsApp</span>
+      </a>
     </div>
   </div>
 </nav>
@@ -124,7 +182,6 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
     const iconClosed = document.getElementById("menu-icon-closed");
     const iconOpen = document.getElementById("menu-icon-open");
 
-    // Remove old event listener if it exists to prevent multiple triggers
     const newButton = button?.cloneNode(true);
     if (newButton && button && button.parentNode) {
       button.parentNode.replaceChild(newButton, button);

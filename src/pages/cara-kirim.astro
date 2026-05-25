@@ -1,0 +1,95 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const metadata = {
+  title: "Cara Pengiriman Buku Yasin — Pengiriman Aman Terjaga",
+  description: "Berikut langkah pengiriman buku Yasin premium di ABA Print.",
+};
+
+const steps = [
+  {
+    step: "01",
+    title: "Konfirmasi Alamat",
+    desc: "Memastikan data alamat lengkap dan nomor HP aktif untuk kurir.",
+    icon: "lucide:message-circle",
+  },
+  {
+    step: "02",
+    title: "Pengecekan Kualitas",
+    desc: "Produk diperiksa ketat sebelum dikemas untuk jaminan kualitas.",
+    icon: "lucide:file-text",
+  },
+  {
+    step: "03",
+    title: "Pengemasan Protektif",
+    desc: "Buku dibungkus lapisan anti-air dan pelindung sudut yang kuat.",
+    icon: "lucide:palette",
+  },
+  {
+    step: "04",
+    title: "Proses Penyerahan",
+    desc: "Paket diserahkan ke jasa kirim terpercaya dengan nomor resi.",
+    icon: "lucide:printer",
+  },
+  {
+    step: "05",
+    title: "Pengiriman Terpantau",
+    desc: "Anda dapat melacak posisi paket secara real-time hingga tiba.",
+    icon: "lucide:truck",
+  },
+];
+---
+
+<BaseLayout {metadata}>
+  <section
+    class="section-blue py-20 bg-white dark:bg-slate-900 transition-colors duration-300"
+  >
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-primary font-bold tracking-widest uppercase text-sm">
+          Proses Pengiriman
+        </span>
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mt-3 mb-6"
+        >
+          Pengiriman Aman Terjaga
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-slate-400">
+          Kami pastikan paket terbungkus rapi, anti air, dan sampai tepat waktu
+          ke alamat Anda.
+        </p>
+      </div>
+
+      <div class="grid gap-12 max-w-4xl mx-auto">
+        {
+          steps.map((item) => (
+            <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+              <div class="flex-shrink-0 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">
+                {item.step}
+              </div>
+              <div class="flex-grow pt-2">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  {item.title}
+                </h3>
+                <p class="text-gray-600 dark:text-slate-400 leading-relaxed text-lg">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-20 text-center">
+        <a
+          href="https://wa.me/62895401308267"
+          class="inline-flex items-center gap-3 px-10 py-5 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full font-bold text-lg hover:shadow-xl hover:shadow-green-500/20 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-green-500/10"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
+          Mulai Konsultasi Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
