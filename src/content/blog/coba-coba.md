@@ -19,6 +19,7 @@ Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec o
 ## Why Do We Use It?
 
 Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+<<<<<<< HEAD
 
 Berikut kodeku nanti untuk kuinput di laman galeri :
 
@@ -169,3 +170,5 @@ percetakan buku yasin kilat
 percetakan buku yasin bisa ditunggu
 percetakan buku yasin harga murah
 percetakan buku yasin dibawah 5000
+=======
+>>>>>>> main
