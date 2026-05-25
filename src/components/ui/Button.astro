@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary" | "whatsapp";
   size?: "sm" | "md" | "lg";
   href?: string;
   type?: "button" | "submit" | "reset";
@@ -24,10 +24,12 @@ const baseStyles =
 
 const variants = {
   primary:
-    "bg-foreground text-background hover:bg-foreground/90 transform hover:scale-105 shadow-lg shadow-primary/20",
+    "bg-primary text-white hover:bg-primary/90 transform hover:scale-105 shadow-lg shadow-primary/20",
   secondary: "bg-muted text-foreground border border-border hover:bg-muted/80",
   tertiary:
     "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground",
+  whatsapp:
+    "bg-[#25D366] text-white hover:bg-[#20BA5A] transform hover:scale-105 shadow-lg shadow-green-500/20",
 };
 
 const sizes = {

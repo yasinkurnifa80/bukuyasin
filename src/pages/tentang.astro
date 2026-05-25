@@ -1,92 +1,87 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getImage } from "astro:assets";
-import Content2 from "@/components/widgets/Content2.astro";
-import Values from "@/components/widgets/Values.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
-// Tetap menggunakan gambar yang sudah pasti ada di proyek Anda agar tidak error saat di-build
+// Menggunakan gambar tentang-kami yang sudah ada di aset proyek Anda
 import aboutImage from "@/assets/images/tentang-kami.webp";
 
 const metadata = {
-  title: "Tentang Kami — Spesialis Cetak Buku Yasin Premium ABA Print",
-  description:
-    "Kenali ABA Print lebih dekat. Kami adalah layanan percetakan spesialis buku yasin dan tahlil yang mengutamakan kualitas tak tertandingi dan ketepatan waktu.",
+  title: "Tentang Kami — Perjalanan Spesialis Cetak Buku Yasin ABA Print Makassar",
+  description: "Kisah di balik ABA Print Makassar. Berawal dari masa sulit berbekal mesin sederhana hingga kini tumbuh menjadi percetakan Buku Yasin profesional yang amanah.",
 };
-
-const values = [
-  {
-    title: "Hasil Cetak Tajam & Rapi",
-    description:
-      "Setiap huruf Arab dan terjemahan dicetak menggunakan mesin modern berkualitas tinggi, memastikan tulisan sangat jelas dan nyaman dibaca oleh jamaah.",
-  },
-  {
-    title: "Jaminan Tepat Waktu",
-    description:
-      "Kami memahami pentingnya tanggal acara tahlilan (40 hari, 100 hari, atau 1000 hari). Kami berkomitmen menyelesaikan pesanan sesuai jadwal yang disepakati.",
-  },
-  {
-    title: "Bahan Baku Pilihan",
-    description:
-      "Mulai dari kertas isi (HVS/Art Paper) hingga variasi board hardcover, semua dipilih dari material premium terbaik agar buku kokoh dan tahan bertahun-tahun.",
-  },
-  {
-    title: "Gratis Desain Sisipan",
-    description:
-      "Tim desainer kami siap membantu menyusun tata letak foto almarhum, data keluarga, dan doa tambahan secara gratis sampai Anda menyatakan setuju (ACC).",
-  },
-  {
-    title: "Proses Transparan",
-    description:
-      "Tidak ada biaya tersembunyi. Semua spesifikasi bahan, jumlah halaman, dan total biaya diinfokan dengan jelas di awal sebelum naik cetak.",
-  },
-  {
-    title: "Melayani dengan Empati",
-    description:
-      "Kami memperlakukan setiap pesanan buku yasin dengan rasa hormat yang tinggi, demi membantu Anda memberikan dedikasi terbaik bagi almarhum/almarhumah.",
-  },
-];
-
-const optimizedImage = await getImage({
-  src: aboutImage,
-  format: "webp",
-});
 ---
 
 <BaseLayout {metadata}>
-  <link slot="head" rel="preload" href={optimizedImage.src} as="image" />
+  <section class="section-cream py-20">
+    <div class="container mx-auto px-6">
+      {/* --- HERO TITLE --- */}
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-primary font-bold tracking-widest uppercase text-sm">
+          Kisah Di Balik ABA Print
+        </span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mt-3 mb-6 leading-tight">
+          Dari Sudut Sempit Kota Makassar, Menjaga Amanah dengan Sepenuh Hati
+        </h1>
+        <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+      </div>
 
-  {/* Bagian Narasi Utama (Copywriting Cerita & Komitmen Toko) */}
-  <Content2
-    title="Dedikasi Terbaik untuk Mengenang Keluarga Tercinta"
-    description={[
-      "ABA Print lahir dari sebuah komitmen sederhana: membantu setiap keluarga muslim menghadirkan cinderamata ibadah yang paling layak, rapi, dan mulia saat mengenang wafatnya anggota keluarga tercinta.",
-      "Kami memahami bahwa Buku Yasin dan Tahlil yang Anda bagikan bukan sekadar lembaran kertas, melainkan wujud penghormatan, kenangan, serta wasilah doa yang akan terus dibaca oleh kerabat dan jamaah. Oleh karena itu, kami tidak pernah bermain-main dengan kualitas cetakan, kerapian jilid, maupun ketepatan waktu pengerjaan.",
-    ]}
-    tagline="Tentang Kami"
-    image={aboutImage}
-    imageAlt="Spesialis Cetak Buku Yasin Premium - ABA Print"
-    actions={[
-      {
-        text: "Tanya Lewat WhatsApp",
-        href: "https://wa.me/6289519865963",
-        variant: "primary",
-        icon: "lucide:message-circle",
-      },
-      {
-        text: "Lihat Pilihan Model",
-        href: "/services",
-        variant: "secondary",
-        icon: "lucide:arrow-right",
-      },
-    ]}
-  />
+      {/* --- BAGIAN NARASI UTAMA --- */}
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-28">
+        {/* Kolom Kiri: Gambar */}
+        <div class="w-full aspect-square max-w-md mx-auto md:max-w-none overflow-hidden rounded-3xl shadow-2xl border border-border order-2 md:order-1">
+          <Image
+            src={aboutImage}
+            alt="Perjalanan dedikasi pembuatan Buku Yasin ABA Print Makassar"
+            class="w-full h-full object-cover aspect-square transition-transform duration-500 hover:scale-105"
+          />
+        </div>
 
-  {/* Bagian Keunggulan / Nilai Jual yang Membuat Pelanggan Yakin */}
-  <Values
-    items={values}
-    columns={3}
-    tagline="Keunggulan Kami"
-    title="Mengapa Mempercayakan Cetak Yasin di ABA Print?"
-    subtitle="6 Alasan utama mengapa ribuan pelanggan mempercayakan pembuatan buku yasin mengenang almarhum/almarhumah kepada kami."
-  />
+        {/* Kolom Kanan: Narasi Storytelling (Sudah mendukung Dark Mode) */}
+        <div class="space-y-6 text-gray-700 dark:text-slate-300 text-lg order-1 md:order-2 leading-relaxed">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-4 border-b-2 border-secondary pb-2 inline-block">
+            Sebuah Awal yang Tidak Mudah...
+          </h2>
+          <p>
+            Beberapa tahun lalu, kami memulai langkah di sebuah sudut kecil di kota Makassar dengan sebuah keterbatasan. 
+            Kami pernah berada di <strong class="text-gray-950 dark:text-white">masa-masa sulit</strong>, merintis usaha hanya berbekal alat seadanya, dan kerap melewati malam tanpa tidur demi memastikan selembar demi selembar halaman selesai terikat dengan rapi.
+          </p>
+          <p>
+            Di masa-masa sulit itu, kami belajar satu pelajaran berharga yang membentuk jati diri kami hari ini: 
+            <em class="text-gray-950 dark:text-white">kepercayaan orang lain adalah hal paling mahal yang tidak boleh dicederai.</em>
+          </p>
+          <p>
+            Kami menyadari bahwa keluarga yang datang ke ABA Print adalah keluarga yang sedang berduka, yang ingin memberikan 
+            <strong class="text-gray-950 dark:text-white">penghormatan terakhir dan mengalirkan pahala jariyah</strong> 
+            bagi almarhum/almarhumah melalui untaian ayat suci Yasin.
+          </p>
+          <p class="border-l-4 border-primary pl-4 bg-blue-50/30 dark:bg-blue-950/30 py-3 rounded-r-xl italic text-gray-900 dark:text-slate-100 font-medium">
+            "Bagi kami, ini bukan sekadar urusan cetak-mencetak bisnis belaka. Ini adalah tugas suci untuk membantu Anda menyampaikan doa terbaik yang akan dibaca berulang kali oleh sanak saudara dan jamaah di Makassar."
+          </p>
+          <p>
+            Hari ini, kami tetap membawa semangat pelayan yang ramah, teliti, dan penuh empati agar buku doa Anda untuk almarhum tercinta dapat terwujud. SALAM.
+          </p>
+        </div>
+      </div>
+
+      {/* --- CTA SECTION --- */}
+      <div class="mt-20 text-center">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-4 justify-center">
+          <a
+            href="https://wa.me/62895401308267"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full font-bold text-lg hover:shadow-xl hover:shadow-green-500/20 hover:scale-105 transform transition-all duration-300 shadow-lg shadow-green-500/10"
+          >
+            <Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
+            Hubungi Kami (WhatsApp)
+          </a>
+          <a
+            href="/layanan"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#fff4e5] text-gray-900 border border-[#efd2a7] rounded-full font-bold text-lg hover:bg-[#f7e6cc] transition-all shadow-md"
+          >
+            Lihat Pilihan Model Yasin
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

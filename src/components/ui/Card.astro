@@ -2,20 +2,32 @@
 interface Props {
   class?: string;
   href?: string;
+  variant?: "default" | "sage" | "blue" | "amber" | "clay";
 }
 
-const { class: className, href, ...rest } = Astro.props;
+const { class: className, href, variant = "default", ...rest } = Astro.props;
 
 const Tag = href ? "a" : "div";
+
+const variantClasses = {
+  default: "surface-amber",
+  sage: "surface-sage",
+  blue: "surface-blue",
+  amber: "surface-amber",
+  clay: "surface-clay",
+};
 ---
 
 <Tag
   href={href}
   class:list={[
-    "bg-card p-8 rounded-2xl border border-border shadow-sm transition-all hover:border-primary/50",
+    "relative overflow-hidden p-8 rounded-lg border shadow-sm transition-all duration-300 hover:border-primary/35 hover:shadow-md block",
+    variantClasses[variant],
     className,
   ]}
   {...rest}
 >
+  {/* A top colored accent strip */}
+  <div class="absolute top-0 left-0 right-0 h-1 bg-primary/80"></div>
   <slot />
 </Tag>

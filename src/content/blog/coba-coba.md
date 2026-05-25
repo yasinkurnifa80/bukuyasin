@@ -85,7 +85,7 @@ const galleryItems = [
   <section class="py-12 bg-gray-50 text-center">
     <h2 class="text-2xl font-bold mb-6">Ingin Hasil yang Sama untuk Acara Anda?</h2>
     <a
-      href="https://wa.me/6289519865963"
+      href="https://wa.me/62895401308267"
       class="inline-block px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
     >
       Konsultasi via WhatsApp
@@ -141,3 +141,31 @@ email: "halo@yasinmakassar.com",
 address: "Makassar, Sulawesi Selatan",
 },
 };
+
+kata kunci percetakan buku yasin :
+percetakan buku yasin murah
+percetakan buku yasin terbaik
+percetakan buku yasin custom
+percetakan buku yasin murah
+percetakan buku yasin terdekat
+percetakan buku yasin pakai foto
+percetakan buku yasin premium
+percetakan buku yasin hardcover
+percetakan buku yasin softcover
+percetakan buku yasin tahlilan
+percetakan buku yasin terpercaya
+percetakan buku yasin elegan
+percetakan buku yasin 40 hari
+percetakan buku yasin cepat
+percetakan buku yasin majmu syarif
+percetakan buku yasin tanpa minimal order
+percetakan buku yasin bludru
+percetakan buku yasin makassar
+percetakan buku yasin jakarta
+percetakan buku yasin surabaya
+percetakan buku yasin harga grosir
+percetakan buku yasin express
+percetakan buku yasin kilat
+percetakan buku yasin bisa ditunggu
+percetakan buku yasin harga murah
+percetakan buku yasin dibawah 5000

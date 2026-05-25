@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets"; // Menggunakan komponen Image Astro
+import { Icon } from "astro-icon/components";
+
 import aboutImage from "@/assets/images/about-office.webp";
 
 const metadata = {
@@ -8,7 +11,6 @@ const metadata = {
     "Lihat koleksi hasil cetak buku Yasin premium kami. Kehalusan cetakan dan kerapian jilid adalah standar kami.",
 };
 
-// Data galeri: Ganti dengan array gambar asli Anda nantinya
 const galleryItems = [
   { title: "Yasin Hardcover Gold Foil", image: aboutImage },
   { title: "Detail Kertas Premium", image: aboutImage },
@@ -20,13 +22,13 @@ const galleryItems = [
 ---
 
 <BaseLayout {metadata}>
-  <section class="py-16 bg-white">
+  <section class="section-blue py-16 dark:bg-slate-950">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
+        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
           Galeri Hasil Cetak
         </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
           Bukti nyata dari dedikasi kami. Setiap buku Yasin yang kami produksi
           diproses dengan ketelitian tinggi demi hasil yang memuaskan.
         </p>
@@ -36,9 +38,12 @@ const galleryItems = [
         {
           galleryItems.map((item) => (
             <div class="group relative overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
-              <img
-                src={item.image.src}
+              <Image
+                src={item.image}
                 alt={item.title}
+                width={500}
+                height={320}
+                format="webp"
                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div class="absolute inset-0 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
@@ -54,14 +59,15 @@ const galleryItems = [
   </section>
 
   {/* CTA Bawah sebagai Penutup */}
-  <section class="py-12 bg-gray-50 text-center">
-    <h2 class="text-2xl font-bold mb-6">
+  <section class="section-yellow py-12 text-center dark:bg-slate-900">
+    <h2 class="text-2xl font-bold mb-6 text-gray-950 dark:text-white">
       Ingin Hasil yang Sama untuk Acara Anda?
     </h2>
     <a
-      href="https://wa.me/6289519865963"
-      class="inline-block px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
+      href="https://wa.me/62895401308267"
+      class="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-500/20 hover:scale-105 transform transition duration-300 shadow-md shadow-green-500/10"
     >
+      <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
       Konsultasi via WhatsApp
     </a>
   </section>

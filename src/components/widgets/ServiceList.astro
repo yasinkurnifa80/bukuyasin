@@ -17,6 +17,8 @@ const {
 } = Astro.props as ServiceListProps;
 
 const { container: containerClassProp = "", ...otherClasses } = classes;
+
+const cardVariants = ["sage", "blue", "amber", "clay"] as const;
 ---
 
 <WidgetWrapper
@@ -36,8 +38,11 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
   />
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {
-      services.map((s) => (
-        <Card class="group relative overflow-hidden hover:bg-muted/50 hover:shadow-md">
+      services.map((s, index) => (
+        <Card
+          variant={cardVariants[index % cardVariants.length]}
+          class="group relative overflow-hidden hover:shadow-md"
+        >
           <div class="absolute -right-4 -top-4 text-8xl opacity-10 transition-transform group-hover:scale-110 group-hover:rotate-12 select-none">
             <Icon name={s.icon} class="w-32 h-32" />
           </div>

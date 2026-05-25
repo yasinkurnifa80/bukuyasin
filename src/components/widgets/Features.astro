@@ -17,6 +17,8 @@ const {
 } = Astro.props as FeaturesProps;
 
 const { container: containerClassProp = "", ...otherClasses } = classes;
+
+const cardVariants = ["sage", "blue", "amber", "clay"] as const;
 ---
 
 <WidgetWrapper
@@ -36,8 +38,8 @@ const { container: containerClassProp = "", ...otherClasses } = classes;
   />
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {
-      features.map((feature) => (
-        <Card>
+      features.map((feature, index) => (
+        <Card variant={cardVariants[index % cardVariants.length]}>
           {feature.icon && (
             <div
               class={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${feature.iconClass ? feature.iconClass : "bg-primary/10 text-primary"}`}

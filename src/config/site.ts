@@ -3,7 +3,7 @@ import ogImage from "@/assets/og-image.png";
 export const siteConfig = {
   name: "Yasin Makassar Premium",
   description:
-    "Jasa cetak buku Yasin eksklusif di Makassar. Kualitas premium, desain elegan, dan pengerjaan cepat untuk kenangan terbaik orang terkasih.",
+    "Percetakan Buku Yasin kualitas premium, desain elegan, dan pengerjaan cepat untuk kenangan terbaik orang terkasih.",
   url: "https://yasinmakassar.com",
   lang: "id",
   locale: "id_ID",
@@ -13,24 +13,28 @@ export const siteConfig = {
 
   // Ditambahkan dummy keys di bawah ini agar Navbar, Footer, & Schema bawaan template tidak error
   socialLinks: {
-    whatsapp: "https://wa.me/6289519865963", // Otomatis menggunakan nomor asli Anda
-    instagram: "https://instagram.com/yasinmakassar",
-    facebook: "https://facebook.com/yasinmakassar",
+    whatsapp: "https://wa.me/62895401308267", // Otomatis menggunakan nomor asli Anda
+    instagram: "https://instagram.com/cetakyasinmakassar",
+    facebook: "https://facebook.com/percetakanyasinmakassar",
     twitter: "",
     github: "",
     discord: "",
   },
 
-  // Susunan menu navigasi baru sesuai hirarki yang diminta
+  // Susunan menu navigasi baru dengan perbaikan pada link induk Profil
   navLinks: [
     { text: "Beranda", href: "/" },
     {
-      text: "Mengapa Kami",
-      href: "#", // Menggunakan '#' agar aman saat diklik pada interaksi dropdown desktop
+      text: "Profil",
+      href: "javascript:void(0);", // Menggunakan void(0) agar layar tidak meloncat ke atas saat menu diklik
       subLinks: [
         { text: "Tentang", href: "/tentang" },
         { text: "Testimoni", href: "/testimoni" },
         { text: "Galeri", href: "/galeri" },
+        { text: "Kontak", href: "/kontak" },
+        { text: "Privasi", href: "/privacy" },
+        { text: "Ketentuan", href: "/ketentuan" },
+        { text: "Tanya Jawab", href: "/faq" },
       ],
     },
     {
@@ -39,15 +43,16 @@ export const siteConfig = {
       subLinks: [
         { text: "Harga", href: "/harga" },
         { text: "Cara Pesan", href: "/cara-pesan" },
+        { text: "Cara Kirim", href: "/cara-kirim" },
       ],
     },
+    { text: "Pengiriman Luar Kota", href: "/pengiriman" },
     { text: "Blog", href: "/blog" },
-    { text: "Kontak", href: "/kontak" },
   ],
 
   // Otomatis melengkapi data alamat riil workshop Anda di Paccerakkang
   contact: {
-    phone: "+62 895-1986-5963",
+    phone: "+62 895-4013-08267",
     email: "halo@yasinmakassar.com",
     address:
       "Jl. Paccerakkang, Paccerakkang, Kec. Biringkanaya, Kota Makassar, Sulawesi Selatan 90562",

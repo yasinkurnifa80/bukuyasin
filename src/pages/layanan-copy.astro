@@ -34,19 +34,26 @@ const services = [
     icon: "lucide:message-circle",
   },
 ];
+
+const serviceCardClasses = [
+  "surface-sage",
+  "surface-blue",
+  "surface-amber",
+  "surface-clay",
+];
 ---
 
 <BaseLayout title="Layanan ABA Print - Solusi Cetak Yasin Terbaik">
-  <section class="py-20 bg-white">
+  <section class="section-cream py-20">
     <div class="container mx-auto px-6">
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-indigo-600 font-bold tracking-wider uppercase text-sm"
+        <span class="text-primary font-bold tracking-wider uppercase text-sm"
           >Layanan Kami</span
         >
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 mb-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mt-3 mb-6">
           Pilihan Produk & Jasa Cetak
         </h1>
-        <p class="text-xl text-gray-600">
+        <p class="text-xl text-gray-600 dark:text-slate-400">
           Kami menawarkan berbagai opsi cetak buku Yasin yang dapat disesuaikan
           dengan kebutuhan ibadah Anda.
         </p>
@@ -54,15 +61,20 @@ const services = [
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
-          services.map((service) => (
-            <div class="group p-8 bg-gray-50 rounded-3xl border border-transparent hover:border-indigo-100 hover:bg-white hover:shadow-2xl transition-all duration-300">
-              <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 group-hover:scale-110 transition-transform">
+          services.map((service, index) => (
+            <div
+              class:list={[
+                "group p-8 rounded-3xl border hover:shadow-2xl transition-all duration-300",
+                serviceCardClasses[index % serviceCardClasses.length],
+              ]}
+            >
+              <div class="w-14 h-14 bg-blue-100 dark:bg-blue-950/50 rounded-2xl flex items-center justify-center mb-6 text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
                 <Icon name={service.icon} class="w-7 h-7" />
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {service.title}
               </h3>
-              <p class="text-gray-600 leading-relaxed">{service.desc}</p>
+              <p class="text-gray-600 dark:text-slate-400 leading-relaxed">{service.desc}</p>
             </div>
           ))
         }
@@ -70,15 +82,16 @@ const services = [
     </div>
   </section>
 
-  <section class="py-20 bg-indigo-900 text-white text-center">
-    <div class="container mx-auto px-6">
+  <section class="py-20 bg-primary dark:bg-slate-950 text-white text-center relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
       <h2 class="text-3xl md:text-4xl font-bold mb-8">
         Siap Memulai Pemesanan?
       </h2>
       <a
-        href="https://wa.me/6289519865963"
-        class="px-10 py-4 bg-green-500 hover:bg-green-600 rounded-full font-bold text-lg transition shadow-lg"
+        href="https://wa.me/62895401308267"
+        class="inline-flex items-center gap-2 px-10 py-4 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full font-bold text-lg hover:shadow-xl hover:shadow-green-500/20 hover:scale-105 transform transition duration-300 shadow-md shadow-green-500/10"
       >
+        <Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
         Konsultasi via WhatsApp
       </a>
     </div>

@@ -1,7 +1,7 @@
 export interface CallToAction {
   text: string;
   href: string;
-  variant?: "primary" | "secondary" | "link";
+  variant?: "primary" | "secondary" | "link" | "whatsapp";
   icon?: string;
   ariaLabel?: string;
 }
