@@ -12,16 +12,12 @@ export default defineConfig({
 
   // FIX: Adapter hanya aktif saat proses build (production)
   // Ini mencegah error "module is not defined" di terminal saat dev server berjalan
-  adapter: process.env.NODE_ENV === "production" 
-    ? cloudflare({ mode: "directory" }) 
-    : undefined,
+  adapter:
+    process.env.NODE_ENV === "production"
+      ? cloudflare({ mode: "directory" })
+      : undefined,
 
-  integrations: [
-    sitemap({ i18n: true }), 
-    icon(), 
-    mdx(), 
-    partytown()
-  ],
+  integrations: [sitemap({ i18n: true }), icon(), mdx(), partytown()],
 
   markdown: {
     remarkPlugins: [
@@ -29,7 +25,7 @@ export default defineConfig({
       () => (tree, file) => {
         if (file.data && file.data.readingTime) {
           file.data.astro.frontmatter.minutesRead = Math.ceil(
-            file.data.readingTime.minutes
+            file.data.readingTime.minutes,
           );
         }
       },

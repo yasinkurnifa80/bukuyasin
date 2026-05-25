@@ -4,9 +4,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<nav
-  class="site-navbar fixed top-0 z-50 w-full border-b"
->
+<nav class="site-navbar fixed top-0 z-50 w-full border-b">
   <div
     class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
   >
@@ -129,16 +127,14 @@ import { Icon } from "astro-icon/components";
   </div>
 
   <div class="hidden md:hidden" id="mobile-menu">
-    <div
-      class="site-navbar-menu space-y-1 border-b px-2 pb-3 pt-2 sm:px-3"
-    >
+    <div class="site-navbar-menu space-y-1 border-b px-2 pb-3 pt-2 sm:px-3">
       {
         siteConfig.navLinks.map((link) => {
           const hasSubLinks = link.subLinks && link.subLinks.length > 0;
 
           return hasSubLinks ? (
             <div class="space-y-1 py-1">
-                <div class="site-navbar-link px-3 py-1 text-sm font-semibold uppercase tracking-wider opacity-75">
+              <div class="site-navbar-link px-3 py-1 text-sm font-semibold uppercase tracking-wider opacity-75">
                 {link.text}
               </div>
               <div class="pl-4 border-l border-border ml-3 space-y-1">

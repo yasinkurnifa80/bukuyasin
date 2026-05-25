@@ -64,22 +64,35 @@ const cardVariants = ["sage", "blue", "amber", "clay", "blue"] as const;
 <BaseLayout {metadata}>
   <section class="section-yellow py-20 dark:bg-slate-950">
     <div class="container mx-auto px-6 text-center">
-      <span class="text-primary font-bold tracking-widest uppercase text-xs block mb-2">
+      <span
+        class="text-primary font-bold tracking-widest uppercase text-xs block mb-2"
+      >
         Daftar Harga
       </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4"
+      >
         Paket Harga Cetak Buku Yasin
       </h1>
-      <p class="text-lg text-gray-600 dark:text-slate-400 mb-16 max-w-2xl mx-auto">
-        Pilih paket yang sesuai dengan kebutuhan kenangan terbaik Anda. Pengerjaan cepat & profesional.
+      <p
+        class="text-lg text-gray-600 dark:text-slate-400 mb-16 max-w-2xl mx-auto"
+      >
+        Pilih paket yang sesuai dengan kebutuhan kenangan terbaik Anda.
+        Pengerjaan cepat & profesional.
       </p>
 
       {/* Grid fleksibel untuk 5 item */}
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 items-stretch">
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 items-stretch"
+      >
         {
           pricingPlans.map((plan, index) => (
             <Card
-              variant={plan.isPopular ? "amber" : cardVariants[index % cardVariants.length]}
+              variant={
+                plan.isPopular
+                  ? "amber"
+                  : cardVariants[index % cardVariants.length]
+              }
               class={`p-6 flex flex-col justify-between ${plan.isPopular ? "border-secondary/60 shadow-xl scale-105 z-10" : ""}`}
             >
               <div>
@@ -88,14 +101,19 @@ const cardVariants = ["sage", "blue", "amber", "clay", "blue"] as const;
                     Paling Diminati
                   </span>
                 )}
-                <h2 class="text-lg font-bold text-gray-950 dark:text-white">{plan.title}</h2>
+                <h2 class="text-lg font-bold text-gray-950 dark:text-white">
+                  {plan.title}
+                </h2>
                 <p class="text-3xl font-extrabold my-4 text-primary dark:text-blue-400">
                   {plan.price}
                 </p>
                 <ul class="text-left space-y-2 mb-6">
                   {plan.features.map((feature) => (
                     <li class="flex items-center text-xs text-gray-700 dark:text-slate-300">
-                      <Icon name="lucide:check" class="w-3.5 h-3.5 text-primary dark:text-blue-400 mr-2 flex-shrink-0" />
+                      <Icon
+                        name="lucide:check"
+                        class="w-3.5 h-3.5 text-primary dark:text-blue-400 mr-2 flex-shrink-0"
+                      />
                       {feature}
                     </li>
                   ))}

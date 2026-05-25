@@ -62,7 +62,13 @@ const { container: containerClassProp = "" } = classes;
           actions.map((action) => (
             <Button
               href={action.href}
-              variant={action.variant as "primary" | "secondary" | "tertiary" | "whatsapp"}
+              variant={
+                action.variant as
+                  | "primary"
+                  | "secondary"
+                  | "tertiary"
+                  | "whatsapp"
+              }
               size="lg"
               aria-label={action.ariaLabel}
               class="w-full sm:w-auto"

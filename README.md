@@ -164,8 +164,8 @@ Your markdown or MDX content goes here...
 
 ## Commands
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
+| Command          | Action                                             |
+| :--------------- | :------------------------------------------------- |
 | `pnpm dev`       | Starts the development server at `localhost:4321`. |
 | `pnpm build`     | Generates the static site in the `dist/` folder.   |
 | `pnpm preview`   | Previews the production build locally.             |
