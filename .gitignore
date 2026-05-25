@@ -21,3 +21,14 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Editor-specific files (Penting jika Anda/rekan lain pakai VS Code)
+.vscode/
+
+# Build tools & cache (Tambahan agar tidak berat saat push)
+dist/
+.cache/
+.temp/
+
+# File sisa jika Anda pernah mencoba menjalankan tes
+coverage/
